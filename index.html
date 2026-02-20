@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitBuddy - Your AI Wellness Coach for Remote Work</title>
+    <meta name="description" content="FitBuddy is the AI-powered virtual fitness coach designed for remote workers. Track workouts, nutrition, and mental health with personalized plans and AI-guided meditation.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        :root {
+            --primary-color: #6C63FF;
+            --secondary-color: #50E3C2;
+            --text-color: #333;
+            --bg-light: #f9f9f9;
+            --bg-dark: #2c3e50;
+            --white: #fff;
+            --border-radius: 8px;
+            --spacing-unit: 1rem;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif; /* Assuming Inter or similar modern sans-serif */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        header {
+            background-color: var(--white);
+            padding: var(--spacing-unit) 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 calc(var(--spacing-unit) * 1.5);
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: calc(var(--spacing-unit) * 1.5);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 1.5);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 6) calc(var(--spacing-unit) * 1.5);
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: var(--spacing-unit);
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto calc(var(--spacing-unit) * 2);
+            opacity: 0.9;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: calc(var(--spacing-unit) * 0.8) calc(var(--spacing-unit) * 2);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .button:hover {
+            background-color: var(--bg-light);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            color: var(--primary-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: calc(var(--spacing-unit) * 2);
+            margin-top: calc(var(--spacing-unit) * 3);
+        }
+
+        .feature-item {
+            background-color: var(--bg-light);
+            padding: calc(var(--spacing-unit) * 2);
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .feature-item h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-top: var(--spacing-unit);
+            margin-bottom: calc(var(--spacing-unit) * 0.5);
+        }
+
+        .feature-item p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: calc(var(--spacing-unit) * 0.5);
+            /* Placeholder for actual icons like FontAwesome */
+        }
+
+        .cta-banner {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 1.5);
+            margin-top: calc(var(--spacing-unit) * 4);
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+        }
+
+        .cta-banner h2 {
+            font-size: 2.5rem;
+            margin-bottom: calc(var(--spacing-unit) * 1.5);
+        }
+
+        .cta-banner .button {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        .cta-banner .button:hover {
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+        }
+
+        footer {
+            background-color: var(--bg-dark);
+            color: var(--white);
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 1.5);
+            font-size: 0.9rem;
+            margin-top: calc(var(--spacing-unit) * 4);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .nav-links {
+                display: none; /* Simple mobile nav hiding for conciseness */
+            }
+            nav {
+                justify-content: center;
+            }
+            .logo {
+                font-size: 1.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .cta-banner h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">FitBuddy</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Master Your Wellness, Master Your Remote Work.</h1>
+                <p>FitBuddy is your AI-powered virtual fitness coach, designed specifically for tech-savvy remote workers aged 22-45. Achieve holistic well-being with personalized plans, AI-guided meditation, and gamified motivation.</p>
+                <a href="#features" class="button">Discover Your FitBuddy</a>
+            </div>
+        </section>
+
+        <section id="features" class="container">
+            <h2 class="section-title">Your Holistic Wellness Partner</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="icon">🏋️</span>
+                    <h3>Personalized Training Plans</h3>
+                    <p>AI-driven workouts tailored to your goals, fitness level, and available equipment, ensuring effective progress.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">🍎</span>
+                    <h3>Nutrition Tracking & Guidance</h3>
+                    <p>Log meals, get smart recommendations, and build healthier eating habits with AI-powered insights.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">🧘‍♀️</span>
+                    <h3>AI-Guided Meditation</h3>
+                    <p>Reduce stress and improve focus with personalized meditation sessions designed for mental clarity.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">📊</span>
+                    <h3>Holistic Progress Tracking</h3>
+                    <p>Monitor workouts, nutrition, and mental health check-ins all in one place for a complete wellness overview.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">🏆</span>
+                    <h3>Gamified Motivation</h3>
+                    <p>Stay engaged and accountable with challenges, rewards, and progress streaks that make fitness fun.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">🧠</span>
+                    <h3>Mental Health Check-ins</h3>
+                    <p>Regular prompts and resources to support your emotional well-being, crucial for remote work balance.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-banner">
+            <div class="container">
+                <h2>Ready to Transform Your Remote Work Wellness?</h2>
+                <p>Join thousands of remote professionals who are taking control of their health with FitBuddy.</p>
+                <a href="pricing.html" class="button">Start Your Free Trial Today</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 FitBuddy. All rights reserved.</p>
+        </div>
+    </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
